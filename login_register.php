@@ -1,51 +1,40 @@
-<?php
-$link = mysqli_connect("localhost", "root", "", "farmers");
-
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
 
 
- if( $_SERVER['REQUEST_METHOD']=='POST') {
-	 
-	 
-	 $name=$_POST['name'];
-	 $number=$_POST['number'];
-	 $place=$_POST['place'];
-	 $password=$_POST['password'];
-	
- if($name=='' || $number=='' || $place=='' || $password==''){
-	 
-	echo "Please Enter All Required Fields";
- }
- 
- 
- // User is exist or not
- $query = "SELECT * FROM `register` WHERE `number` = '$number'";
-$sqlsearch = mysqli_query($link,$query);
-$resultcount = mysqli_num_rows($sqlsearch);
-
- if($resultcount>0){
-	 echo "Your Mobile is Already Registered ";
- }
- else{
- 
- $query = "INSERT INTO `register` (name, number,place,password) VALUES ('$name','$number','$place','$password')";
-			if (mysqli_query($link, $query)) {
-                echo"Register Successfully"; 
-			
-                } 
-				else{
-				echo"Try After Some Time";
-				}
-				
- 
- }
- 
- 
- 
- }
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link href="design.css" type="text/css" rel="stylesheet"/>
+<?php include 'registration.php';?>
+<?php include 'login.php';?>
+</head>
+<body>
 
 
-?>
+<div id="wrapper">
+<div class="form_div_log">
+<div class="form_div">
+<p class="form_label">LOGIN FORM</p>
+<form method="post" action="">
+<p><input type="text" placeholder="Enter Mobile Number" name="number_login" maxlength="10"></p>
+<p><input type="password" placeholder="Password" name="password_login"></p>
+<p><input type="submit" value="LOGIN" name="btn_login"></p>
+</form>
+</div>
+</div>
+
+<div class="form_div_reg">
+<div class="form_div">
+<p class="form_label">SIGNUP FORM</p>
+<form method="post" action="">
+<p><input type="text" placeholder="Enter Name" name="name"></p>
+<p><input type="text" placeholder="Enter Mobile Number" name="number" maxlength="10"></p>
+<p><input type="text" placeholder="Enter Place" name="place"></p>
+<p><input type="password" placeholder="Password" name="password"></p>
+<p><input type="submit" value="SIGNUP" name="btn_register"></p>
+</form>
+</div>
+</div>
+
+</div>
+</body>
+</html>
