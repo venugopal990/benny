@@ -3,8 +3,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<link href="responsive_style.css" type="text/css" rel="stylesheet"/>
-<?php include 'login_register.php';?>
+<link href="design.css" type="text/css" rel="stylesheet"/>
+<?php include 'functions.php';?>
 </head>
 <body>
 
