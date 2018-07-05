@@ -1,10 +1,5 @@
 <?php
-$link = mysqli_connect("localhost", "root", "", "farmers");
-
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
+ include 'db.php';
 
  if( isset($_POST['btn_login'])) {
 	 
@@ -27,13 +22,16 @@ echo "Please Enter Mobile and Password";
     {  
     $dbnumber=$row['number'];  
     $dbpassword=$row['password'];  
+	$dbname=$row['name'];
+
     }  
   
     if($number == $dbnumber && $password == $dbpassword)  
     {  
-   
+    session_start();  
+	$_SESSION['user_name']=$dbname; 
   
-    header("Location: index.php");  
+    header("Location: home.php");  
     }  
     } else {  
     echo "Invalid mobile number or password!";  
