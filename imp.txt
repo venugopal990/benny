@@ -1,3 +1,0 @@
- session_start();  
-	$_SESSION['sess_user']=$number; 
-//login.php line 34

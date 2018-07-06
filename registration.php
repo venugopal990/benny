@@ -1,5 +1,5 @@
 <?php
- include 'db.php';
+ include 'db_connection.php';
 
 
  if( isset($_POST['btn_register'])) {
